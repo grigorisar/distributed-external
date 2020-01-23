@@ -34,6 +34,35 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     @Transactional
+    public List<Petition> getPetitionsPending(){
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        // create a query
+        Query<Petition> query = currentSession.createQuery("from Petition P where P.status= 'pending' ", Petition.class);
+
+        // execute the query and get the results list
+        List<Petition> Petitions = query.getResultList();
+        return Petitions;
+    }
+
+    @Override
+    @Transactional
+    public boolean acceptPetition(String title) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        try {
+
+            int q = currentSession.createSQLQuery("UPDATE `petition` SET `status` = 'accepted'  WHERE `petition`.`title` = '" + title + "';").executeUpdate();
+
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public Boolean savePetition(Petition petition) {
         /**
          * This function is an INSERT tool ONLY.

@@ -53,10 +53,11 @@
         </thead>
         <tbody id="table_body">
 
-        <c:forEach var="tempRole" items="${roles}">
+        <c:forEach var="tempPet" items="${petitions}">
             <tr>
-                <td style="text-align: center">${tempRole.id}</td>
-                <td style="text-align: center">${tempRole.title}</td>
+                <td style="text-align: center">${tempPet.id}</td>
+                <td style="text-align: center">${tempPet.title}</td>
+                <td style="text-align: center">${tempPet.description}</td>
             </tr>
         </c:forEach>
         </tbody>
@@ -67,12 +68,12 @@
         <%--create role--%>
         <div align="center"    class="pure-u-1-3">
 
-            <input type="button" name="addRole" id="addRole" value="Add Role">
+            <input type="button" name="acceptPetition" id="acceptPetition" value="Accept Petition">
             <br>
-            <form style="display:none" id="role_creation"  name="role_creation" method="post" action="${pageContext.request.contextPath}/manager/create_role">
+            <form style="display:none" id="role_creation"  name="role_creation" method="post" action="${pageContext.request.contextPath}/rept/accept_petition_process">
                 <div class="form-group">
                     <label for="title">Title</label> <br>
-                    <input required style="text-transform: uppercase" type="text" name="title" id="title" placeholder="Title" maxlength="50"><br>
+                    <input required style="text-transform: uppercase" type="text" name="title" id="title"  placeholder="Title" maxlength="50"><br>
                 </div>
 
                 <div class="form-group">
@@ -85,68 +86,7 @@
                        value="${_csrf.token}"/>
             </form>
             <div id="bottom1"></div>
-        </div>
-        <%--update role--%>
-        <div align="center" class="pure-u-1-3">
-
-            <input type="button" name="updateRole" id="updateRole" value="Update Selected Role">
-            <br>
-            <div style="display:none" id="update">
-                <form  id="role_update"  name="role_creation" method="post" action="${pageContext.request.contextPath}/manager/update_role">
-                    <!-- style="display:none" -->
-                    <div class="form-group">
-                        <label for="title">Title</label> <br>
-                        <input required style="text-transform: uppercase" type="text" name="title" id="title_u" placeholder="Title" maxlength="50"><br>
-                    </div>
-
-                    <div  class="form-group" >
-                        <input hidden type="text" required name="old_title" id="old_title"><br>
-                    </div>
-
-                    <div class="form-group">
-                        <input required type="submit" class="button" value = "Update" id="updateB">
-
-                    </div>
-
-                    <input type="hidden"
-                           name="${_csrf.parameterName}"
-                           value="${_csrf.token}"/>
-
-                </form>
-
-            </div>
-
-            <div id="bottom2"></div>
-            <%--delete role--%>
-        </div>
-
-        <div align="center" class="pure-u-1-3" >
-
-            <input type="button" name="deleteRole" id="deleteRole" value="Delete Selected Role">
-
-            <br>
-
-            <div style="display:none" id="delete">
-
-                <form  id="role_delete"  name="role_delete" method="post" action="${pageContext.request.contextPath}/manager/delete_role">
-                    <!-- style="display:none" -->
-                    <div class="form-group">
-                        <label for="title">Title</label> <br>
-                        <input required style="text-transform: uppercase" type="text" name="title" id="title_d" placeholder="Title" maxlength="50"><br>
-                    </div>
-
-                    <input type="submit" name="confirm" id="confirm" value="Confirm">
-
-                    <input type="hidden"
-                           name="${_csrf.parameterName}"
-                           value="${_csrf.token}"/>
-
-                </form>
-
-                </div>
-
-            <div id="bottom3"></div>
-        </div>
+        </div?
     </div>
 
 
@@ -191,54 +131,6 @@
                 } else {
                     $("#role_creation").hide();
                 }
-
-
-            });
-
-            $("#updateRole").click (function(e) {
-
-                $('#user_update').trigger("reset");
-                $('#bottom2').empty();
-                if (  $("#update").css('display') == 'none' ) {
-                    $("#update").show();
-
-                    var title = $('.selected td').eq(1).text();
-
-                    if (title == ""){
-
-                        // $("#table_body").empty();
-
-                    } else {
-
-                        $("#old_title").val($('.selected td').eq(1).text());
-                        $("#title_u").val($('.selected td').eq(1).text());
-                    }
-
-                } else {
-                    $("#update").hide();
-                    $('#update').trigger("reset");    //reset form
-
-                }
-            });
-
-            $("#deleteRole").click (function(e) {               //on click function for delete Role role
-
-                if (  $("#delete").css('display') == 'none' ) {
-                    $("#delete").show();
-
-                    var title = $('.selected td').eq(1).text();
-
-                    if (title == ""){
-                        // $("#table_body").empty();
-                    } else {
-                        $("#title_d").val($('.selected td').eq(1).text());
-                    }
-
-                } else {
-                    $("#delete").hide();
-                    $('#delete').trigger("reset");    //reset form
-                    $('#bottom3').empty();
-                }
             });
 
 
@@ -249,14 +141,14 @@
                 event.preventDefault();
 
                 /* get some values from elements on the page: */
-                var $form = $(this),
+                var form = $(this),
                     url = $form.attr('action');
                 console.log("posting happens");
 
                 $.ajax({
                     type: "POST",
                     url: url,
-                    data : $('#role_creation').serialize(),
+                    data : $('#acceptPetition').serialize(),
                     // dataType: "plain/text",
                     success: function(data) {                                   //on success of ajax
                         //var obj = jQuery.parseJSON(data); if the dataType is not specified as json uncomment this
@@ -279,67 +171,6 @@
 
             });
 
-            $("#role_update").submit(function(event) {    //posting for user update
-                event.preventDefault();
-
-                /* get some values from elements on the page: */
-                var $form = $(this),
-                    url = $form.attr('action');
-
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data : $('#role_update').serialize(),
-                    // dataType: "plain/text",
-                    success: function(data) {
-                        console.log("posting sucessful");
-                        $("#bottom2").empty().append(data)
-                        window.location.reload();
-                    },
-                    error: function(xhr, request, error) {
-                        var err = xhr.responseText;
-                        alert(err);
-                        $('#bottom2').empty().append("Error Encountered with request " + error)
-
-                    },
-                    complete: function () {                             //on completion
-                        console.log("update finished")
-                    }
-                });
-
-            });
-
-            $("#role_delete").submit(function(event) {
-
-                /* stop form from submitting normally */
-                event.preventDefault();
-                console.log("deletion starts");
-
-                /* get some values from elements on the page: */
-                var $form = $(this),
-                    url = $form.attr('action');
-
-                console.log("posting happens");
-
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data : $('#role_delete').serialize(),
-                    success: function(data) {
-                        console.log("posting sucessful");
-                        $("#bottom3").empty().append(data);
-                        window.location.reload();
-                    },
-                    error: function(xhr, request, error) {
-                        var err = xhr.responseText;
-                        alert(err);
-                        $('#bottom3').empty().append("Error Encountered with request " + error)
-                    },
-                    complete: function () {                             //on completion
-                        console.log("deletion finished")
-                    }
-                });
-            });
         });
     </script>
 

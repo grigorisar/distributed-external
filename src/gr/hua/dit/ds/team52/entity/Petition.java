@@ -16,6 +16,17 @@ public class Petition {
     @Column(name = "description", nullable = true)
     private String description;
 
+    @Column(name = "status", nullable = true)
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getStudent_username() {
         return student_username;
     }
