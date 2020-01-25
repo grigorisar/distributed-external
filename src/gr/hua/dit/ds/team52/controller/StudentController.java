@@ -18,6 +18,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+/*
 
 @Controller
 @RequestMapping("/student")
@@ -41,7 +42,8 @@ public class StudentController {
         return "student/create-petition";
     }
 
-    /*@ResponseBody
+    */
+/*@ResponseBody
     @PostMapping(value = "/create_petition_process")
     public String createPetition(WebRequest request) {
         Petition petition = new Petition();
@@ -64,7 +66,8 @@ public class StudentController {
             return "No rights to create petition";
         }
         return "Petition successfully added";
-    }*/
+    }*//*
+
 
     @ResponseBody
     @PostMapping(value = "/create_petition_process", produces = "plain/text")
@@ -98,3 +101,4 @@ public class StudentController {
 
 
 }
+*/

@@ -19,6 +19,7 @@ import org.springframework.web.context.request.WebRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Objects;
+/*
 
 @Controller
 @RequestMapping("/manager")
@@ -267,3 +268,4 @@ public class ManagerController {
 
 }
 
+*/

@@ -29,7 +29,7 @@ public class UserController {
         return "startpage";
     }
 
-
+/*
 
     @RequestMapping(value = "/CreateFormProccess")
     public String showRegistrationForm(WebRequest request, Model model) {
@@ -50,5 +50,5 @@ public class UserController {
 //        return new ModelAndView("redirect:/");
         return "redirect:/user/";
 
-    }
+    }*/
 }

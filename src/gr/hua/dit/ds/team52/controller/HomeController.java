@@ -30,11 +30,13 @@ public class HomeController {
     public String showfirstpage() {
         return "home/startpage";
     }
+/*
 
     @RequestMapping("/create")
     public String createUser() {
         return "home/create-user";
     }
+*/
 
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
@@ -49,6 +51,7 @@ public class HomeController {
     public  String showAccessDenied() {
         return "home/access-denied";
     }
+/*
 
     @RequestMapping("/example")
     public String showCSSExample() {
@@ -73,8 +76,10 @@ public class HomeController {
         model.addAttribute("message", result);
         return "helloworld";
     }
+*/
 
 //    =========================================================================================
+/*
 
     @ResponseBody
     @PostMapping(value = "/create_user_process", produces = "plain/text")
@@ -127,6 +132,7 @@ public class HomeController {
 
         return "Registration Successful";
     }
+*/
 
 
 }
