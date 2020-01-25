@@ -32,6 +32,8 @@ public class RepController {
     public String createUser(Model model) {
         List<Petition> staff = studentDAO.getPetitionsPending();       //return all the petitions for the table
         model.addAttribute("petitions", staff);
+
+
         return "rep/petition-acceptor";
 
     }
