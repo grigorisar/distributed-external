@@ -38,6 +38,16 @@ public class Petition {
     @Column(name = "student_username")
     private String student_username;
 
+    @Column(name = "company_name")
+    private String company_name;
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public void setCompany_name(String company_name) {
+        this.company_name = company_name;
+    }
 //    @Column(name = "status", nullable = false, length = 8)
 //    private String status;
 

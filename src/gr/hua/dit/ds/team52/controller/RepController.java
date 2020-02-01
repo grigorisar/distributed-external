@@ -6,6 +6,8 @@ import gr.hua.dit.ds.team52.entity.Petition;
 import gr.hua.dit.ds.team52.entity.Staff;
 import gr.hua.dit.ds.team52.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +32,12 @@ public class RepController {
 
     @RequestMapping("/accept_petitions")
     public String createUser(Model model) {
-        List<Petition> staff = studentDAO.getPetitionsPending();       //return all the petitions for the table
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        String currentUserName = authentication.getName();
+
+        List<Petition> staff = studentDAO.getPetitionsPending(currentUserName);       //return all the petitions for the table
         model.addAttribute("petitions", staff);
 
 

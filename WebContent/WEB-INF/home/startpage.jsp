@@ -10,7 +10,9 @@
 <div>
 
 </div>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/buttons.css"/>
+
+
+
 <h2 style="align-content: center">Hello!</h2>
 <div class="main">
 <%--    <h3><a href="<c:url value="/showForm"></c:url>">Show Form</a></h3>--%>

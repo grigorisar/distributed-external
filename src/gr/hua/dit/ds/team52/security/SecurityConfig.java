@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     private PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(16);
     }
 
     @Override
@@ -66,7 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
 //                .antMatchers("/create").permitAll()                         //for the create user page
 //                .antMatchers("/create_user_process").permitAll()            //and permit the user creation process
-                .antMatchers("/rep/accept_petitions").hasAnyRole(fetchServiceRoles("Examine Petitions"))
+                .antMatchers("/rep/**").hasAnyRole(fetchServiceRoles("Examine Petitions"))
+                .antMatchers("/rep/**").hasAnyRole(fetchServiceRoles("Create Internships"))
 //                .antMatchers("/rep/create_internship").hasAnyRole(fetchServiceRoles("Create Internships"))                    //Use this one later
 //                .antMatchers("/student/**").hasAnyRole(fetchServiceRoles("Create Petition"))
 //                .antMatchers("/staff/petition_list/**").hasAnyRole(fetchServiceRoles("Examine Petitions"))
@@ -83,10 +84,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public String[] fetchServiceRoles(String name){
         int i=0;
         Service service = serviceDAO.getServiceByName(name);
+//        System.out.println("Service name:" + service.toString());
+//        System.out.println("Number of roles: " + service.getRoles().size());
         String[] roles = new String[service.getRoles().size()];
         for (Role tempRole:service.getRoles()) {
+//            System.out.println("Role number " + i + " name: " + tempRole.getTitle());
             roles[i++] = tempRole.getTitle();
         }
+//        System.out.println(roles.toString());
         return roles;
     }
 }
