@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="../home/navbar.jsp" />
+
     <p>Hello coming soon ${student.username}</p>
 </body>
 </html>

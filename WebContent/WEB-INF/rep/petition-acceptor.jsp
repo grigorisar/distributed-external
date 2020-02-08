@@ -39,6 +39,8 @@
     </style>
 </head>
 <body>
+<jsp:include page="../home/navbar.jsp" />
+
 <br>
 <table id="table" class="display"  align="center">
     <thead>

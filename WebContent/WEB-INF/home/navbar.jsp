@@ -6,6 +6,9 @@
 
 <head>
 <%--    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>--%>
+<%--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/darkreader@4.7.15/darkreader.min.js"></script>--%>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.4/lib/darkmode-js.min.js"></script>
+
 
     <style>
         ul {
@@ -61,6 +64,16 @@
     </style>
 </head>
 <body>
+
+<script>
+   /* DarkReader.enable({
+        brightness: 100,
+        contrast: 60,
+        sepia: 30
+    });*/
+   const darkmode =  new Darkmode();
+   darkmode.toggle();
+</script>
 
 <ul>
     <li><a href="${pageContext.request.contextPath}">Home</a></li>

@@ -15,6 +15,9 @@
     <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="../home/navbar.jsp" />
+
+
 <h1>Select a Service</h1>
 <%-- NAVIGATE TO PAGE--%>
 <h2><a href="<c:url value="/rep/accept_petitions"></c:url>">Accept Petitions</a></h2>

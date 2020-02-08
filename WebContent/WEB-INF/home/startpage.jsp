@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 
 <title>Still Testing</title>
+
+<jsp:include page="navbar.jsp" />
+
 <div>
 
 </div>
@@ -22,3 +25,5 @@
 <%--    <h3><a href="<c:url value="/manager/"></c:url>">Show Manager Menu</a></h3>--%>
 <%--    <h3><a href="<c:url value="/logout"></c:url>">Sign Out</a></h3>--%>
 </div>
+
+

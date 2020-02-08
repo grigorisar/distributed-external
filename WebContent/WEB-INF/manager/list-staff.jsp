@@ -13,6 +13,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript" src=" https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
+
 <div id="wrapper">
     <div id="header">
         <h1>Staff Data Manager</h1>
