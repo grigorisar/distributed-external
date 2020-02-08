@@ -9,9 +9,10 @@
 <body>
 <link type="text/css" rel="stylesheet"
       href="${pageContext.request.contextPath}/resources/css/buttons.css"/>
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script type="text/javascript" src=" https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src=" https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
 
 <div id="wrapper">
     <div id="header">
@@ -23,7 +24,7 @@
     <div id="content">
         <!--  add our html table here -->
         <table id="list" class="steelBlueCols" style="width:100%">
-        <tr>
+            <tr>
                 <th>Username    </th>
                 <th>First Name  </th>
                 <th>Last Name   </th>

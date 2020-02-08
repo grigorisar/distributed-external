@@ -22,13 +22,13 @@ public class Internship {
     @Column(name = "status")
     private String status;
 
-    //Company of internships
+    //Company of internship
     @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.DETACH, CascadeType.REFRESH},fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
 
     //Petitions for the position
-    @OneToMany(mappedBy = "internship",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "internship",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Petition> petitions;
 
     public Internship(){};

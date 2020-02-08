@@ -49,4 +49,10 @@ public class CompanyDAOImpl implements CompanyDAO{
         Session currentSession = sessionFactory.getCurrentSession();
         return currentSession.createQuery("from Internship I where I.title LIKE '"+name+"'", Internship.class).getSingleResult();
     }
+    @Override
+    @Transactional
+    public Internship getInternshipByID(int id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.createQuery("from Internship I where I.id ='"+id+"'", Internship.class).getSingleResult();
+    }
 }

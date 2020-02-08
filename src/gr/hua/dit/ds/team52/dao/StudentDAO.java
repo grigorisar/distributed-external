@@ -11,7 +11,7 @@ public interface StudentDAO {
     public Boolean savePetition(Petition petition);
 //            ,String studentUsername);             add this later
     public Student getStudent(String username);  //probably not needed later on
-    public List<Petition> getPetitionsPending();
+    public List<Petition> getPetitionsPending(String name);
     public boolean acceptPetition(String title);
 
     }

@@ -18,11 +18,21 @@ public class Petition {
     private String status;
     @Column(name = "description", nullable = true)
     private String description;
+    @Column(name = "company_name")
+    private String company_name;
 
     @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.DETACH, CascadeType.REFRESH},fetch = FetchType.LAZY)
     @JoinColumn(name="internship_id")
     private Internship internship;
 
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public void setCompany_name(String company_name) {
+        this.company_name = company_name;
+    }
 
     public String getStatus() {
         return status;

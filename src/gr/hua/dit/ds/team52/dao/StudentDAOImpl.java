@@ -33,15 +33,10 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     @Transactional
-    public List<Petition> getPetitionsPending(){
+    public List<Petition> getPetitionsPending(String name){
         Session currentSession = sessionFactory.getCurrentSession();
-
-        // create a query
-        Query<Petition> query = currentSession.createQuery("from Petition P where P.status= 'pending' ", Petition.class);
-
-        // execute the query and get the results list
-        List<Petition> Petitions = query.getResultList();
-        return Petitions;
+        //get list of petitions on name
+        return currentSession.createQuery("from Petition P where P.status= 'pending' and P.company_name= :name ", Petition.class).getResultList();
     }
 
     @Override

@@ -13,11 +13,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -53,6 +51,16 @@ public class CompanyController {
         return "internship/new_internship";
     }
 
+    @RequestMapping("/internship/{id}")
+    public String getInternshipPetitions(@PathVariable("id")int id, Model model) {
+
+        List<Petition> petitions = companyDAO.getInternshipByID(id).getPetitions();
+        model.addAttribute("petitions",petitions);
+
+        return "internship/petition-acceptor";
+    }
+
+
     @RequestMapping("/internships")
     public String getInternships(Model model){
 
@@ -70,9 +78,12 @@ public class CompanyController {
 
     @RequestMapping("/accept_petitions")
     public String createUser(Model model) {
-        List<Petition> staff = studentDAO.getPetitionsPending();       //return all the petitions for the table
-        model.addAttribute("petitions", staff);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
+        String currentUserName = authentication.getName();
+
+        List<Petition> petitions= studentDAO.getPetitionsPending(currentUserName);       //return all the petitions for the table
+        model.addAttribute("petitions", petitions);
 
         return "internship/petition-acceptor";
 

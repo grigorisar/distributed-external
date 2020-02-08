@@ -13,6 +13,7 @@ public interface CompanyDAO {
     public List<Company> getCompanies();
     public Company getCompanyByUsername(String username);
     public Internship getInternshipByName(String name);
+    public Internship getInternshipByID(int id);
 
 
 }
