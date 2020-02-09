@@ -30,16 +30,17 @@
             <tbody id="table_body">
 
             <c:forEach var="tempPet" items="${petitions}">
-                <tr>
-                    <td style="text-align: center">${tempPet.id}</td>
-                    <td style="text-align: center">${tempPet.title}</td>
-                    <td style="text-align: center">${tempPet.description}</td>
-                    <td style="text-align: center">
-                            <%--                create link to new page for student with current username--%>
-                        <a href="${pageContext.request.contextPath}/company/get_bio?username=${tempPet.student_username}" target="_blank"  >BIO</a>
-                    </td>
-
-                </tr>
+                <c:if test="${tempPet.status} == 'pending'">
+                    <tr>
+                        <td style="text-align: center">${tempPet.id}</td>
+                        <td style="text-align: center">${tempPet.title}</td>
+                        <td style="text-align: center">${tempPet.description}</td>
+                        <td style="text-align: center">
+                                <%--                create link to new page for student with current username--%>
+                            <a href="${pageContext.request.contextPath}/company/get_bio?username=${tempPet.student_username}" target="_blank"  >BIO</a>
+                        </td>
+                    </tr>
+                </c:if>
             </c:forEach>
             </tbody>
         </table>
