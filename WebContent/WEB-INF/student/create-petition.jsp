@@ -1,5 +1,5 @@
 
-<<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer.css">
 
 <title>Application</title>
@@ -17,7 +17,7 @@
 </div>
 
 <header>
-    <h1>This is an internship request page</h1>
+    <h1>This is a petition request page</h1>
     <h3>Here you are, scroll down.</h3>
 </header>
 
@@ -31,13 +31,15 @@
                     <%--SELECT INTERNSHIP--%>
                     <select required name="company" id="company" label="--select an internship--">
                         <c:forEach var="company" items="${companies}">
-                            <optgroup label="${company.companyName}">
-                                <c:forEach var="inter" items="${company.internships}">
-                                    <c:if test="${inter.status != 'accepted'}">
-                                        <option value="${inter.title}" label="${inter.title}"> ${inter.title} </option>
-                                    </c:if>
-                                </c:forEach>
-                            </optgroup>
+                            <c:if test="${company.companyName != 'admin'}"> <%--company with 'admin' as name is a mock company used by admin--%>
+                                <optgroup label="${company.companyName}">
+                                    <c:forEach var="inter" items="${company.internships}">
+                                        <c:if test="${inter.status != 'accepted'}">
+                                            <option value="${inter.title}" label="${inter.title}"> ${inter.title} </option>
+                                        </c:if>
+                                    </c:forEach>
+                                </optgroup>
+                            </c:if>
                         </c:forEach>
                     </select>
                     <textarea required name="description" placeholder="Description and Why Should We Choose You"></textarea>
