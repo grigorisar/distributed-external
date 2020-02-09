@@ -15,7 +15,7 @@
 
 
 <div class="profile-content">
-    <main style="padding: 10vh">
+    <main style="padding: 35vh">
         <div id="content">
         <br>
         <table id="table" class="display"  align="center">
@@ -48,7 +48,7 @@
     </main>
     <footer>
         <p>All rights included... Greg & Tanabe Co.</p>
-        <small>🕷 Wish you luck, <a href="http://github.com/grigorisar">Gregory</a>.</small>
+        <small>🕷 Please don't hurt me CSS.</small>
     </footer>
 </div>
 

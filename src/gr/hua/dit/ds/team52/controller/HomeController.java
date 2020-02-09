@@ -42,14 +42,14 @@ public class HomeController {
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:/login?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+        return "redirect:/";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
     }
 
     @RequestMapping("/access_denied")
     public  String showAccessDenied() {
         return "home/access-denied";
     }
-
+/*
     @RequestMapping("/example")
     public String showCSSExample() {
         return "examples/example";
@@ -72,7 +72,7 @@ public class HomeController {
         String result = "Hello " + theName;
         model.addAttribute("message", result);
         return "helloworld";
-    }
+    }*/
 
 //    =========================================================================================
 

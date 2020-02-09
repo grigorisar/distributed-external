@@ -16,11 +16,11 @@ body {
     width: 200px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
-    top: 50px; /* Stay at the top */
+    /*top: 50px; !* Stay at the top *!*/
     left: 0;
     background: #eee;
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 150px;
+    /*padding-top: 150px;*/
 }
 
 /*
@@ -73,6 +73,8 @@ body {
 
 .profile-usermenu {
     margin-top: 30px;
+    margin-right: 20px;
+
 }
 
 .profile-usermenu ul li {
@@ -91,6 +93,8 @@ body {
 
 .profile-usermenu ul li a i {
     margin-right: 8px;
+    margin-left: 15px;
+
     font-size: 14px;
 }
 
@@ -113,5 +117,6 @@ body {
 /* Profile Content */
 .profile-content {
     margin-left: 200px;
-    height: inherit;
+    /*height: inherit;*/
+    /*height:100em;*/
 }

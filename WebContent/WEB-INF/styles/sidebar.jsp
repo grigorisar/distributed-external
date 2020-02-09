@@ -25,13 +25,18 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/account.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/header-footer.css">
 
+
+
+
+
+
 <style>
     tr {border: 1px #DDD solid; padding: 5px;}
     td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
 
-    .l-box {
+   /* .l-box {
         padding: 1em;
-    }
+    }*/
     /*
           .hovered td {
               background: #ddd;
@@ -84,6 +89,12 @@
             </li>
 
             <li>
+                <a href="${pageContext.request.contextPath}/company/accept_petitions">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Accept Petitions </a>
+            </li>
+
+            <li>
                 <a href="#">
                     <i class="glyphicon glyphicon-flag"></i>
                     Help </a>
@@ -92,4 +103,6 @@
     </div>
     <!-- END MENU -->
 </div>
+
+
 <!-- END SIDEBAR -->

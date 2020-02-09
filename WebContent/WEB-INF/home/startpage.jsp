@@ -4,16 +4,21 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 
+
 <meta charset="UTF-8">
+<html>
 
 <title>Still Testing</title>
 
-<%--<jsp:include page="../styles/navbar.jsp" />--%>
+<head>
 
+</head>
+<%--<jsp:include page="../styles/navbar.jsp" />--%>
+<body>
 <jsp:include page="../styles/sidebar.jsp" />
 
 <div class="profile-content">
-    <main style="padding: 10vh">
+    <main style="padding: 39vh">
         <div id="content">
             <h2 style="align-content: center">Hello!</h2>
             <div class="main">
@@ -28,6 +33,12 @@
     </main>
     <footer>
         <p>All rights included... Greg & Tanabe Co.</p>
-        <small>🕷 Wish you luck, <a href="http://github.com/grigorisar">Gregory</a>.</small>
+        <small> 🕷  🕷  🕷  🕷  🕷  🕷  🕷  🕷  🕷  🕷  .</small>
     </footer>
 </div>
+
+
+
+</body>
+
+</html>

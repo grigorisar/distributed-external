@@ -77,13 +77,26 @@ public class CompanyController {
     }
 
     @RequestMapping("/accept_petitions")
-    public String createUser(Model model) {
+    public String acceptPetitions(Model model) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = null;
+        try {
+            currentUserName = authentication.getName();
+        } catch (Exception e) {
+            System.out.println("Can't get username");
+        }
 
-        String currentUserName = authentication.getName();
+        System.out.println(currentUserName);
 
-        List<Petition> petitions= studentDAO.getPetitionsPending(currentUserName);       //return all the petitions for the table
-        model.addAttribute("petitions", petitions);
+        try {
+            List<Petition> petitions= studentDAO.getPetitionsPending(currentUserName);       //return all the petitions for the table
+            model.addAttribute("petitions", petitions);
+        } catch (Exception e) {
+
+        }
+
+
 
         return "internship/petition-acceptor";
 

@@ -8,7 +8,7 @@
 <!-- CONTENT HERE  -->
 <div class="profile-content">
         <div id="svg-container">
-            <main style="padding: 10vh">
+            <main style="padding: 33vh">
                 <div id="content">
                     <!--  add our html table here -->
                     <table id="table" class="display" align="center">
@@ -41,7 +41,7 @@
         </div>
         <footer>
             <p>All rights included... Greg & Tanabe Co.</p>
-            <small>🕷 Wish you luck, <a href="http://github.com/grigorisar">Gregory</a>.</small>
+            <small>🕷 Wish you luck, Gregory.</small>
     </footer>
 </div>
 

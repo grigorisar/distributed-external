@@ -36,7 +36,12 @@ public class StudentDAOImpl implements StudentDAO {
     public List<Petition> getPetitionsPending(String name){
         Session currentSession = sessionFactory.getCurrentSession();
         //get list of petitions on name
-        return currentSession.createQuery("from Petition P where P.status= 'pending' and P.company_name= :name ", Petition.class).getResultList();
+        Query<Petition> query = currentSession.createQuery("from Petition P where P.status= 'pending' and P.company_name= :name ", Petition.class);
+        query.setParameter("name", name);
+
+        // execute the query and get the results list
+        List<Petition> Petitions = query.getResultList();
+        return Petitions;
     }
 
     @Override

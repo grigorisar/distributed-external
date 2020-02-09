@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header-footer.css">
+<jsp:include page="../styles/sidebar.jsp" />
+
 
 <title>Application</title>
 <body>
@@ -7,7 +9,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <div class="svg-container">
-    <!-- I crated SVG with: https://codepen.io/anthonydugois/pen/mewdyZ -->
+    <!-- I created SVG with: https://codepen.io/anthonydugois/pen/mewdyZ -->
     <svg viewbox="0 0 1650 400" class="svg">
         <path id="curve" fill="#50c6d8" d="M 1650 300 Q 400 350 0 300 L 0 0 L 1650 0 L 1650 300 Z">
         </path>
@@ -42,8 +44,8 @@
 </main>
 
 <footer>
-    <p>All rights included... footer Co.</p>
-    <small> Wish you luck, <a href="http://github.com/grigorisar">Gregory</a>.</small>
+    <p>All rights included....</p>
+    <small> Wish you luck, Gregory.</small>
 </footer>
 </body>
 
