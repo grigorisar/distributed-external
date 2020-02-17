@@ -41,6 +41,10 @@ public class StudentDAOImpl implements StudentDAO {
 
         // execute the query and get the results list
         List<Petition> Petitions = query.getResultList();
+        if (Petitions.isEmpty()){
+            System.out.println("Petition List is empty");
+
+        }
         return Petitions;
     }
 

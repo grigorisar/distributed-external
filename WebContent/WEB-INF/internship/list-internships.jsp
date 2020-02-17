@@ -41,7 +41,7 @@
         </div>
         <footer>
             <p>All rights included... Greg & Tanabe Co.</p>
-            <small>🕷 Wish you luck, Gregory.</small>
+            <small>🕷 #BlameGreg</small>
     </footer>
 </div>
 

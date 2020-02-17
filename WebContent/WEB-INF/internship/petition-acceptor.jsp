@@ -30,7 +30,7 @@
             <tbody id="table_body">
 
             <c:forEach var="tempPet" items="${petitions}">
-                <c:if test="${tempPet.status} == 'pending'">
+<%--                <c:if test="${tempPet.status} == 'pending'">--%>
                     <tr>
                         <td style="text-align: center">${tempPet.id}</td>
                         <td style="text-align: center">${tempPet.title}</td>
@@ -40,7 +40,7 @@
                             <a href="${pageContext.request.contextPath}/company/get_bio?username=${tempPet.student_username}" target="_blank"  >BIO</a>
                         </td>
                     </tr>
-                </c:if>
+<%--                </c:if>--%>
             </c:forEach>
             </tbody>
         </table>

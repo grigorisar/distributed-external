@@ -1,5 +1,6 @@
 package gr.hua.dit.ds.team52.controller;
 
+import com.google.gson.Gson;
 import gr.hua.dit.ds.team52.dao.CompanyDAO;
 import gr.hua.dit.ds.team52.dao.InternshipDAO;
 import gr.hua.dit.ds.team52.dao.StudentDAO;
@@ -54,8 +55,18 @@ public class CompanyController {
     @RequestMapping("/internship/{id}")
     public String getInternshipPetitions(@PathVariable("id")int id, Model model) {
 
-        List<Petition> petitions = companyDAO.getInternshipByID(id).getPetitions();
-        model.addAttribute("petitions",petitions);
+        Internship inte = companyDAO.getInternshipByID(id);
+
+        System.out.println("Internship id:" + inte.getId());
+
+        Gson g = new Gson();
+
+//        System.out.println(g.toJson(inte.getPetitions()));
+
+
+//        System.out.println("Petitions :" + petitions.toString());
+
+        model.addAttribute("petitions",inte.getPetitions());
 
         return "internship/petition-acceptor";
     }
@@ -65,7 +76,7 @@ public class CompanyController {
     public String getInternships(Model model){
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof AnonymousAuthenticationToken)) {            //not 100% sure what this if is about  TODO check this condition
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String username = authentication.getName(); //get username
 
             Company company = companyDAO.getCompanyByUsername(username);
@@ -95,8 +106,6 @@ public class CompanyController {
         } catch (Exception e) {
 
         }
-
-
 
         return "internship/petition-acceptor";
 
